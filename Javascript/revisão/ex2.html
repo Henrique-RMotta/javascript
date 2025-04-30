@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipositivos antigos</title>
+</head>
+<body>
+    <h1>Dipositivos Antigos</h1>
+    <p>Descrição dos Dipositivos abaixo:</p>
+    <p>Digite F - Fita cassete</p>
+    <p>Digite D - DVD</p>
+    <p>Digite C - CD</p>
+    <input type="text" id="disp" placeholder="Digite Aqui">
+    <button onclick="dispositivos()">ver descrição</button>
+    <p id="res"></p>
+    <script>
+        function dispositivos (){
+            let input = document.getElementById("disp").value;
+            let res = document.getElementById("res");
+            switch (input){
+                case "F":
+                res.innerHTML = "A fita cassete, também conhecida como cassete áudio ou simplesmente cassete, é um formato analógico de mídia para gravação de áudio, desenvolvido pela Philips em 1963. Consiste numa fita magnética acondicionada num pequeno estojo de plástico, com dois carretéis, que permite a gravação e reprodução de sons em aparelhos de áudio. "
+                break;
+                case "D":
+                res.innerHTML = "Um DVD (Digital Video Disc ou Digital Versatile Disc) é um disco óptico usado para armazenar dados, como filmes, jogos ou outros arquivos digitais. É similar a um CD, mas pode armazenar muito mais informações. Os DVDs são lidos por um leitor de DVD utilizando um laser. "
+                break;
+                case "C":
+                res.innerHTML = "Um CD é um disco de acrílico, sobre o qual é impressa uma longa espiral (22,188 voltas, totalizando 5,6 km de extensão). As informações são gravadas em furos nessa espiral, o que cria dois tipos de irregularidades físicas: pontos brilhantes e pontos escuros."
+                break;
+                default:
+                    res.innerHTML = "Dispositivo não selecionado"
+
+            }
+        }
+    </script>
+
+</body>
+</html>
