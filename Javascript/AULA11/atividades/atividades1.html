@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+    <link rel="stylesheet" href="semaforo.css">
+</head>
+<body>
+    <h1> Semáforo</h1>
+    <p>Digite um número de 1 a 3 para ver o estado do semáforo</p>
+    <input type="text" placeholder="digite um número" id="input">
+    <button onclick="semaforo()">Clique para ver o estado do semaforo</button>
+    <p id="resultado"></p>
+    
+    <script>
+        function semaforo(){
+
+            const semaforo = document.querySelector('body')
+            let input = (parseInt(document.getElementById("input").value));
+            let resultado = document.getElementById("resultado");
+            if (input === 1){
+                resultado.innerHTML = (`<strong style= 'color:green;'>Verde</strong>`)
+                semaforo.style.background = `rgb(0,255,0)`
+            } else if (input === 2){
+                resultado.innerHTML = (`<strong style= 'color:yellow;'>Amarelo</strong>`)
+                semaforo.style.background = `rgb(238,255,0)`
+            } else if (input === 3){
+                resultado.innerHTML = (`<strong style= 'color:red;'>Vermelho</strong>`)
+                semaforo.style.background = `rgb(255,0,0)`
+            } else {
+                resultado.innerHTML = (`não existe esse semáforo não`)
+                semaforo.style.background = `rgb(255,255,255)`
+            }
+        }
+    </script>
+</body>
+</html>

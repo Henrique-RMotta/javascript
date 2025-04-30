@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanica</title>
+</head>
+<body>
+    <h1>Mecânica</h1>
+    <h3>Modelo</h3>
+    <select id="modelos">
+        <option value="1">Kwid</option>
+        <option value="2">Polo</option>
+        <option value="3">Uno</option>
+    </select>
+    <h3>Marca</h3>
+    <div id="marca"></div>
+    <h3>Ano</h3>
+    <div id="ano"></div>
+    <h3>Tipo de combustível</h3>
+    <div id="tipo"></div>
+    <h2>Informações do Carro</h2>
+    <div id="info"></div>
+    <button onclick="infos ()">Informções do Carro</button>
+    <script>
+        function infos (){
+        let modelo = document.getElementById("modelos").value;
+        let modelos = ["Kwid","Polo","Uno"];
+        let marcas = ["Renault", "Volkswagen", "Fiat"];
+        let anos = ["2020", "2023", "1999"];
+        let tipos = ["Etanol", "Gasolina", "Álcool"];
+        switch (modelo) {
+            case "1":
+                document.getElementById("marca").innerHTML = marcas[0];
+                document.getElementById("ano").innerHTML = anos[0];
+                document.getElementById("tipo").innerHTML = tipos[0];
+                document.getElementById("info").innerHTML = `Modelo: ${modelos[0]}, Marca: ${marcas[0]}, Ano: ${anos[0]}, Combustível: ${tipos[0]}`;
+                break;
+            case "2":
+                document.getElementById("marca").innerHTML = marcas[1];
+                document.getElementById("ano").innerHTML = anos[1];
+                document.getElementById("tipo").innerHTML = tipos[1];
+                document.getElementById("info").innerHTML = `Modelo: ${modelos[1]}, Marca: ${marcas[1]}, Ano: ${anos[1]}, Combustível: ${tipos[1]}`;
+                break;
+            case "3":
+                document.getElementById("marca").innerHTML = marcas[2];
+                document.getElementById("ano").innerHTML = anos[2];
+                document.getElementById("tipo").innerHTML = tipos[2];
+                document.getElementById("info").innerHTML = `Modelo: ${modelos[2]}, Marca: ${marcas[2]}, Ano: ${anos[2]}, Combustível: ${tipos[2]}`;
+                break;
+            default:
+                document.getElementById("info").innerHTML = "Selecione um modelo válido.";
+        }
+        }
+    </script>
+</body>
+</html>

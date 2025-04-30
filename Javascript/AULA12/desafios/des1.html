@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmbio moedas</title>
+</head>
+<body>
+    <p>1 dolár = 6 reais</p>
+    <p>1 euro = 7 reais</p>
+    Em Qual moeda você quer converter(Doláres(US$)/Euros(€)): <input type="text" id="moeda" >
+    Valor em reais: <input type="number" id="reais">
+    <button onclick="trocar()">converter</button>
+    <div id="cambio"></div>
+    <script>
+        function trocar () {
+            let moedas = document.getElementById("moeda").value;
+            let reais = parseFloat(document.getElementById("reais").value);
+            let moeda;
+            switch(moedas){
+                case "US$":
+                    reais = reais / 6
+                    moeda = "Dólares"
+                    break;
+                case "€":
+                    reais = reais / 7
+                    moeda = "Euros"
+                    break
+                default:
+                    reais = "indefinido"
+                    moeda = "indefinido"
+            }        
+            document.getElementById("cambio").innerHTML = `o valor covertido é ${reais.toFixed(2)} ${moeda}`
+        }
+    </script>
+</body>
+</html>

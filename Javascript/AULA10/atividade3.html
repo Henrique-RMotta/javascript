@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade3</title>
+</head>
+<body>
+    <h1>Loja brinquedos</h1>
+    <button onclick="verdesconto()">adcionar produtos</button>
+    <p id="resultado"></p>
+<script>
+    function verdesconto() {
+        let produtos = [];
+        let numproduto = prompt("escolha quantidade de produtos");
+        let resultado = document.getElementById("resultado");
+        for (let i = 0 ; i < numproduto ; i++){
+            let produto = prompt(`escolha o produto${i+1}`)
+            produtos.push(produto)
+            if (numproduto >= 10){
+            resultado.innerHTML =`o ${produtos[9]} tem 10% de desconto e o o ${produtos[0]} tem 10% de desconto `
+        } else if (numproduto < 10){
+            resultado.innerHTML =`o ${produtos[0]} tem 10% de desconto`
+        } else {
+            resultado.innerHTML = `to nao`
+        }
+        }
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio2</title>
+</head>
+<body>
+    <input type="text" id="valor" placeholder="digite os números separados por vírgula">
+    <button onclick="maiorvalor()">pegar maior valor</button>
+    <p id="resultadomaiorvalor"></p>
+
+    <script>
+        function maiorvalor(){
+            const vetor = document.getElementById("valor").value.split(",").map(Number);
+            let maior = vetor[0];
+            for( let i = 0 ; i < vetor.length ; i++){
+                if ( vetor[i] > maior){
+                maior = vetor[i];
+            }
+            }
+          document.getElementById("resultadomaiorvalor").innerHTML = "O maior valor é:"+maior;
+        }
+    </script>
+</body>
+</html>

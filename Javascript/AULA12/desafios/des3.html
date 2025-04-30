@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Área</title>
+</head>
+<body>
+    <h1>Calculador de área</h1>
+    <select id="geometrias">
+        <option value="1">Círculo</option>
+        <option value="2">Quadrado</option>
+        <option value="3">Triangulo</option>
+    </select>
+    <div class="Dimensão1">
+        Dimensão 1:<input type="number" id="dim1">
+   
+    </div>
+    <div class="Dimensão2">
+        Dimensão 2:<input type="number" id="dim2">
+    </div>
+   
+    <p id="res"></p>
+    <script>
+        function calcular(){
+            let geometriaselect = document.getElementById("geometrias").value;
+            let res = document.getElementById("res")
+            const dim1 = parseFloat(document.getElementById("dim1").value);
+            const dim2 = parseFloat(document.getElementById("dim2").value);
+            let área ;
+            switch (geometriaselect){
+                case "1":
+                    
+            }
+        }
+    </script>
+   
+</body>
+</html>

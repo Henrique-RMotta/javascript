@@ -1,0 +1,34 @@
+//checar idade com habilitação para dirigir
+function dirigir(idade, habilitacao) {
+    return idade >= 18 && habilitacao;
+}
+console.log(dirigir(67,true)); 
+console.log(dirigir(17,true));
+console.log(dirigir(16,true));
+console.log(dirigir(54,true));
+console.log(dirigir(18,true));
+
+console.log();
+
+let a = true;
+let b = true;
+
+console.log(a || b );
+console.log(b || false);
+
+console.log()
+
+function fimdesemana(dia) {
+    return dia == 'sabado' || dia == 'domingo';
+}
+console.log(fimdesemana('sabado'));
+console.log(fimdesemana('domingo'));
+
+console.log();
+
+function naoadulto(idade) {
+    return ! (idade >=18);
+}
+
+console.log(naoadulto(20));
+console.log(naoadulto(16));

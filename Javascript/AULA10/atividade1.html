@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ativiade 1</title>
+</head>
+<body>
+    <h1>Cafeteria</h1>
+    <h1>Escolha as opções pelo número </h1>
+    <h1>1-Café Expresso: R$ 5,00</h1>
+    <h1>2-Cappuccino: R$ 8,00</h1>
+    <h1>3-Chocolate Quente: R$ 7,50</h1>
+    <h1>4-Chá: R$ 4,00</h1>
+    <button onclick="calcularsoma()">Escolher</button>
+    <p id="resultado"></p>
+    <p id="resultado1"></p>
+<script>
+    function calcularsoma(){
+        let produtos = []
+        let pedidos = []
+        let numproduto = parseInt(prompt("Quantos produtos você quer ?"));
+        let soma = 0
+        let resultado1 = document.getElementById("resultado1")
+        let resultado = document.getElementById("resultado")
+        
+        for (let i = 0 ; i < numproduto; i++ ){
+            let produto = parseInt(prompt("Escolha o produto"));
+            if (produto === 1 ){
+                produtos.push(5)
+                pedidos.push("1-Café Expresso: R$ 5,00")
+                alert("1-Café Expresso: R$ 5,00")
+            } else if (produto === 2){
+                produtos.push(8)
+                pedidos.push("2-Cappuccino: R$ 8,00")
+                alert("2-Cappuccino: R$ 8,00")
+            } else if (produto === 3){
+                produtos.push(7.50)
+                pedidos.push("3-Chocolate Quente: R$ 7,50")
+                alert("3-Chocolate Quente: R$ 7,50")
+            } else if (produto === 4){
+                produtos.push(4)
+                pedidos.push("4-Chá: R$ 4,00")
+                alert("4-Chá: R$ 4,00")
+            } else {
+                alert("este produto não existe, tente novamente")
+            }
+        }
+        for (let i = 0; i< produtos.length ; i++){
+        soma += produtos[i]
+        }
+        resultado.innerHTML = `Os seus pedidos foram:${pedidos} `
+        resultado1.innerHTML = `a soma deu: R$${soma} `
+    }
+</script>
+</body>
+</html>

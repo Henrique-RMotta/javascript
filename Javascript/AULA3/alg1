@@ -1,0 +1,96 @@
+// operador lógico e 👍
+let a = true;
+let b = false;
+let c = true; 
+let d = false; 
+
+console.log(a && b); // false 
+console.log(a && a); // true
+console.log(a && c); // true
+console.log(b && c); // false
+console.log(c && d); // false 
+console.log(d && a); // false
+console.log(d && b); // false
+
+console.log();
+console.log("troca de operador");
+console.log();
+
+// operador lógico ou 👏
+let e = true;
+let f = false;
+let g = false;
+let h = true;
+
+console.log(e || f); // true
+console.log(f || g); // false
+console.log(e || h); // true
+console.log(e || g); // true
+console.log(f || h); // true
+console.log(h || g); // true
+
+console.log();
+console.log("troca de operador 2");
+console.log();
+
+let i = true;
+let j = false; 
+let k = true;
+let l = true;
+
+console.log(!i); // false
+console.log(!j); // true
+console.log(!k); // false
+console.log(!l); // false
+
+console.log();
+console.log("troca de operador 3");
+console.log();
+
+let ab = true;
+let bc = false;
+
+//operador e 
+let eresultado = ab && bc ; // false
+console.log("resultado da e = " + eresultado);
+
+//operador ou 
+let ouresultado = ab || bc ;// true
+console.log("resultado da ou = " + ouresultado);
+
+//operador não
+let naoresultado = !ab; // false
+console.log("resultado do nao = " + naoresultado);
+
+//commbinação de operadores lógicos
+let combinados = (ab && !bc) || (!ab && bc ); // true
+console.log("resultado da combinação = " + combinados);
+
+console.log();
+console.log("troca de operadores 4");
+console.log();
+// exemplos de operadores lógicos com valores numericos
+let x = 10; 
+let y = 5;
+let z = 0;
+
+//operador e com valores numericos
+let resultadoe = (x>y) && (y > z); // verdadeiro
+console.log("resultado da e=" + resultadoe);
+
+//operador ou com valores numericos
+let resultadoou = (x<y) || (y > z); // verdadeiro
+console.log("resultado da ou=" + resultadoou);
+
+let resultado2 = (z < y) && (x > z); // verdadeiro
+console.log("resultado 2 = " + resultado2);
+
+let reusltadoOU = (x<y) || (y>z); //verdadeiro 
+console.log("resultado OU = " + reusltadoOU);
+
+let resultadoN = !(x < y); // verdadeiro
+console.log("resultado N = " + resultadoN);
+
+let resultado4 = ((x>y) && (y>z)) || ((x<y) && (z>y)); // true
+console.log("resultado 4 = " + resultado4);
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividades 4</title>
+</head>
+<body>
+    <h1>Cálculo de IMC</h1>
+    <button onclick="menu()">Mostrar Relação</button> 
+    <p id="menu"></p>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" placeholder="Digite a sua nome">
+    <label for="peso">Peso:</label>
+    <input type="text" id="peso" placeholder="Digite a sua peso">
+    <label for="altura">Altura:</label>
+    <input type="text" id="altura" placeholder="Digite a sua altura">
+    <button onclick="calcular()">calcular IMC</button>
+    <p id="resultado"></p>
+    <script>
+        function menu(){
+            let menu = document.getElementById("menu");
+            menu.innerHTML = ("<p><mark>Abaixo do peso: IMC menor que 18,5</mark></p><p><mark>Peso normal: IMC entre 18,5 e 24,9</mark></p><p><mark>Sobrepeso: IMC entre 25 e 29,9</mark></p><p><mark>Obesidade: IMC 30 ou mais</mark></p>")
+        }
+        function calcular(){
+            const nome = (document.getElementById("nome").value);
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            let resultado = document.getElementById("resultado");
+            let imc = peso/(altura**2)
+            if (imc < 18.5){
+                resultado.innerHTML =(`Senhor(a) ${nome} está abaixo do peso`)
+            } else if(imc > 18.5 && imc < 24.9){
+                resultado.innerHTML = (`Senhor(a) ${nome} está com o peso normal`)
+            } else if (imc > 25 && imc <= 29.9 ){
+                resultado.innerHTML = (`Senhor(a) ${nome} está com sobrepeso`)
+            }else if (imc >= 30){
+                resultado.innerHTML = (`Senhor(a) ${nome} está obeso`)
+            }else {
+                resultado.innerHTML = ("houve um erro tente novamente")
+            }
+        }
+    </script>
+</body>
+</html>

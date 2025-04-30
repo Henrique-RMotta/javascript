@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade2</title>
+</head>
+<body>
+    <h1>Mecânica do seu zé</h1>
+    <button onclick="menu()">Mostrar menu</button> 
+    <p id="menu"></p>
+    <button onclick="compra()">Compra</button>
+    <p id="resultado"></p>
+    </div>
+  
+    <script>
+        function menu(){
+            let menu = document.getElementById("menu")
+            menu.innerHTML = ("<p>Avaliar carro - R$50</p><p>Consertar carro - R$100</p><p>Trocar peça - R$1000</p>")
+        }
+        function compra(){
+            let nummec = parseInt(window.prompt("quantos pedidos você vai querer"));
+            let pedidos = [];
+            let valores = [];
+            let resultado = document.getElementById("resultado")
+            for(let i = 0 ; i< nummec ; i++){
+                let msg = parseInt(window.prompt("Digite 1-Avaliar carro - R$50\nDigite 2-Consertar carro - R$100\nDigite 3-Trocar peça - R$1000"))
+                if (msg === 1){
+                    alert("você escolheu o pedido 1 - Avaliar carro");
+                    pedidos.push("<p>1-Avaliar carro</p>");
+                    valores.push(50)
+                } else if(msg === 2){
+                    alert("você escolheu o pedido 2 - Consertar carro ");
+                    pedidos.push("<p>2-Consertar carro</p>");
+                    valores.push(100)
+                } else if (msg === 3){
+                    alert("você escolheu o pedido 3-Trocar peça ");
+                    pedidos.push("<p>3-Trocar peça</p>");
+                    valores.push(1000)
+                }else {
+                    alert("este pedido não existe")
+                }
+            }
+            let soma =  0 
+            for (let i = 0; i < valores.length ; i++){
+                soma += valores[i]
+            }
+            resultado.innerHTML = `<p>você escolheu estes pedidos: ${pedidos.join("")}</p><p> a soma deu ${soma}</p>` 
+        }
+    </script>
+</body>
+</html>

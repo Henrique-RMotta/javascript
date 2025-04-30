@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade2</title>
+</head>
+<body>
+    <h1>Estoque</h1>
+    <label for="quantidade">Digite a quantidade em números</label>
+    <input type="text" id="quantidade" placeholder="Qual é o estoque atual">
+    <button onclick="estoque()">ver o estado</button>
+    <p id="resultado"></p>
+
+    <script>
+        function estoque(){
+            const quantidade = document.getElementById("quantidade").value.split(",").map(Number);
+            let resultado = document.getElementById("resultado");
+            if (quantidade >= 100){
+                resultado.innerHTML = "seu estoque está bom"
+            } else if (quantidade <= 30){
+                resultado.innerHTML = "seu estoque está ruim"
+            } else {
+                 resultado.innerHTML = "seu estoque está medio"
+            }
+
+        }
+    </script>
+</body>
+</html>
