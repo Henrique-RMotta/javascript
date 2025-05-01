@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Roupas</title>
+</head>
+<body>
+    <h1>Bem vindo a Loja de Roupas !</h1>
+    <h2>Roupas Disponíveis</h2>
+    <p>Camisa - R$70</p>
+    <p>Calça - R$50</p>
+    <p>Vestido - R$100</p>
+    Quantos Itens você quer: <input type="number" min="1" id="numintem" placeholder="Digite apenas números">
+    <div id="res"></div>
+    <button onclick="comprar()">comprar</button>
+   
+    <script>
+        var valores = []
+        var soma = 0; 
+        function comprar() {
+            let numintens = parseInt(document.getElementById("numintem").value);
+            let res = document.getElementById("res")
+            let roupas = []
+            for (let i = 0 ; i < numintens ; i++){
+                let compra = parseInt(window.prompt(`Qual será sua ${i + 1} compra\nDigite Apenas Números\n1-Camisa 70R$\n2-Calça - R$50\n3-Vestido - R$100`))
+                switch (compra) {
+                    case 1:
+                        valores.push(70)
+                        roupas.push("<p>Camisa</p>")
+                        alert("A roupas escolhida foi: Camisa")
+                        break;
+                    case 2:
+                        valores.push(50)
+                        roupas.push("<p>Calça</p>")
+                        alert("A roupas escolhida foi: Calça")
+                        break;
+                    case 3:
+                        valores.push(100)
+                        roupas.push("<p>Vestido</p>")
+                        alert("A roupas escolhida foi: Vestido")
+                        break;
+                    default: 
+                        res.innerHTML = "A roupa selecionada não existe ou houve um erro tente novamente"
+
+                }
+            }
+            somar(); 
+            res.innerHTML = `A compra escolhida foi:${roupas.join("")} Com um total de: R$${soma}`
+        }
+        function somar(){
+            for (let i = 0; i < valores.length; i++){
+                soma += valores[i];
+            }
+            return soma
+        }
+    </script>
+</body>
+</html>
