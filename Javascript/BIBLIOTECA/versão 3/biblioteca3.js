@@ -171,7 +171,20 @@ function gerarRelatorioVendas (){
         `;
         tabelaRelatorio.appendChild(linha);
 
-
+        //somar o preço ao total de vendas
+        totalVendas += parseFloat(venda.preco);
 })
+
+//Adicionar uma linha para o total de vendas 
+const linhaTotal = document.createElement('tr');
+linhaTotal.innerHTML = `
+<td><strong>Total</strong></td>
+<td><strong>R$${totalVendas.toFixed(2)}</strong></td>
+<td></td>
+`
+tabelaRelatorio.appendChild(linhaTotal);
+
+//exibir a área do relatório
+document.getElementById('relatorio-vendas').classList.remove('hidden');
     }
 
