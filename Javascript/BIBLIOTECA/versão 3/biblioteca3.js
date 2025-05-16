@@ -5,7 +5,7 @@ function mostrarSecao(secao) {
     // Esconde todas as ações
     document.getElementById("cadastro").classList.add("hidden");
     document.getElementById("consulta").classList.add("hidden");
-    document.getElementById("alterar").classList.add("hidden");
+    document.getElementById("alterar").classList.add("hiddedocn");
     document.getElementById("emprestimo").classList.add("hidden");
     document.getElementById("venda").classList.add("hidden");
     document.getElementById("relatorio-vendas").classList.add("hidden");

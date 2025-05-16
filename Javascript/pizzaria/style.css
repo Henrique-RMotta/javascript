@@ -1,45 +1,163 @@
-/* Estilos gerais */
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff8f0;
-    color: #333;
+    font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+    background: #2d1b0e;
+    color: #fff8f0;
 }
 
-/* Container centralizado */
 .container {
-    max-width: 1400px;
-    margin: 50px auto;
-    text-align: center;
-    background-color:#7B451D;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #3e2723;
+    padding: 32px 24px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 
-/* Título principal */
 h1 {
-    font-size: 3em;
-    color: #333;
-    margin-bottom: 30px;
-    
+    font-size: 2.8em;
+    color: #ffcc80;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 0 #000;
+    text-align: center;
 }
 
-/* Botões */
+h2 {
+    color: #ffb74d;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    gap: 12px;
+}
+
 .botoes button {
-    background-color: #333;
+    background: #1a120b;
     border: none;
-    color: white;
-    padding: 15px 25px;
-    margin: 10px;
+    color: #ffcc80;
+    padding: 12px 28px;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1.1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s, color 0.2s;
 }
 
 .botoes button:hover {
-    background-color: #fff8f0;
+    background: #ffb74d;
+    color: #3e2723;
 }
 
+.form-group {
+    margin-bottom: 18px;
+}
 
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #ffcc80;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #1a120b;
+    color: #ffcc80;
+    font-size: 1em;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    background: #2d1b0e;
+}
+
+button {
+    background: #1a120b;
+    color: #ffcc80;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+    background: #ffb74d;
+    color: #3e2723;
+}
+
+#msgerro {
+    margin-top: 10px;
+    color: #ff7043;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #2d1b0e;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 18px;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+}
+
+th {
+    background: #1a120b;
+    color: #ffcc80;
+    font-size: 1.1em;
+}
+
+td {
+    background: #3e2723;
+    color: #fff8f0;
+    border-bottom: 1px solid #4e342e;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.hidden {
+    display: none;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #1a120b;
+    color: #ffcc80;
+    font-size: 1em;
+    margin-bottom: 8px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='goldenrod' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7.293 8.293a1 1 0 011.414 0L10 9.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px 20px;
+}
+
+select:focus {
+    background: #2d1b0e;
+}

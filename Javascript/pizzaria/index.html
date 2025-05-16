@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Javapizza</title>
+    <title>The last of Pizza</title>
 </head>
+<script src="pizzaria.js"></script>
 <body>
     <div class="container">
-        <h1>Javapizza</h1>
+        <h1>The last of Pizza</h1>
         <p class="icones"></i>
         <div class="botoes">
             <button onclick="mostrarsecao('login')">
@@ -20,11 +21,88 @@
             <button onclick="mostrarsecao('pagamento')">
                 Pagamento
             </button>
-            <button onclick="mostrarsecao('Relatório')">
+            <button onclick="mostrarsecao('cadastrar')">
+                Cadastrar Pizza
+            </button>
+            <button onclick="mostrarsecao('relatorio')">
                 Relatório
             </button>
+               <button onclick="mostrarsecao('alterar')">
+                Alterar Pizza
+            </button>
+        </div>
+        
+        <!-- Cadastro de pizza -->
+        <div id="cadastrar" class="hidden">
+        <h2>Cadastrar Pizza</h2>
+        <div class="form-group">
+        <label for="nomepizza">Nome da pizza:</label>
+        <input type="text" id="nomepizza" placeholder="Digite o nome da pizza">
+        </div>
+        <div class="form-group">
+        <label for="descricao">Descrição da pizza:</label>
+        <input type="text" id="descricao" placeholder="Digite a descrição da pizza">
+         </div>
+        <div class="form-group">
+        <label for="tamanho">Tamanho:</label>
+        <select id="tamanho">
+            <option value="">Selecione o tamanho</option>
+            <option value="Pequena">Pequena</option>
+            <option value="Média">Média</option>
+            <option value="Grande">Grande</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label for="valor">Preço:</label>
+        <input type="number" id="valor" placeholder="Digite o valor da pizza">
+        </div>
+         <button onclick="cadastrarpizza()">Cadastrar Pizza</button>
+        <p id="msgerro"></p>
+        </div>  
+
+         <!-- Cardápio -->
+        <div id="cardapio" class="hidden">
+            <h2>Cardápio</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome:</th>
+                        <th>Tamanho</th>
+                        <th>Descrição:</th>
+                        <th>Valor:</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-pizzas">
+
+                </tbody>
+            </table>
+        </div>
+        <!-- Alterar pizza -->
+        <div id="alterar" class="hidden">
+            <h2>Alterar Pizza</h2>
+             <div class="form-group">
+            <label for="novo-nome">Nome da pizza:</label>
+            <input type="text" id="novo-nome" placeholder="Digite o nome da pizza">
+            </div>
+            <div class="form-group">
+            <label for="novo-descricao">Descrição da pizza:</label>
+            <input type="text" id="novo-descricao" placeholder="Digite a descrição da pizza">
+            </div>
+            <div class="form-group">
+            <label for="novo-tamanho">Tamanho:</label>
+            <select id="novo-tamanho">
+            <option value="">Selecione o tamanho</option>
+            <option value="Pequena">Pequena</option>
+            <option value="Média">Média</option>
+            <option value="Grande">Grande</option>
+            </div>
+            </select>
+        <div class="form-group">
+            <label for="novo-valor">Preço:</label>
+            <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
+        </div>
+        <p id="msg"></p>
         </div>
     </div>
-    
 </body>
 </html>
