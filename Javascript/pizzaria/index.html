@@ -80,6 +80,8 @@
         <!-- Alterar pizza -->
         <div id="alterar" class="hidden">
             <h2>Alterar Pizza</h2>
+            <input type="text" id="busca-alterar" placeholder="Buscar por nome da pizza" oninput="buscaralterar()">
+            <div id="form-alterar" class="hidden">
              <div class="form-group">
             <label for="novo-nome">Nome da pizza:</label>
             <input type="text" id="novo-nome" placeholder="Digite o nome da pizza">
@@ -101,8 +103,10 @@
             <label for="novo-valor">Preço:</label>
             <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
         </div>
-        <p id="msg"></p>
+        <button onclick="alterarpizza()">Alterar pizza</button>
         </div>
+        </div>
+         <p id="msg"></p>
     </div>
 </body>
 </html>

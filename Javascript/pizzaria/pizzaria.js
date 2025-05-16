@@ -50,6 +50,15 @@ const busca = document.getElementById("busca-alterar").value.toLowerCase();
 pizzasalterar = pizzas.find((pizza) =>
     pizza.nomepizza.toLowerCase().includes(busca)
 );
+if(pizzasalterar){
+    document.getElementById("form-alterar").classList.remove("hidden");
+    document.getElementById("novo-nome").value = pizzasalterar.nomepizza;
+    document.getElementById("novo-descricao").value = pizzasalterar.descricao;
+    document.getElementById("novo-tamanho").value = pizzasalterar.tamanho;
+    document.getElementById("novo-valor").value = pizzasalterar.valor;
+} else {
+    document.getElementById("msg").innerHTML = "Pizza não encontrada"
+}
 }
 
 
@@ -65,6 +74,7 @@ if(pizzasalterar){
         pizzasalterar.tamanho = novotamanho;
         pizzasalterar.valor = novovalor;
         cardapio();
+         document.getElementById("form-alterar").classList.add("hidden")
         document.getElementById("msg").innerHTML = "Pizza alterada com sucesso !!"
     } else {
         document.getElementById("msg").innerHTML = "Preencha todos os campos, ou houve um erro tente novamente mais tarde "
