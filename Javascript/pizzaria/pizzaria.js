@@ -43,6 +43,7 @@ function mostrarsecao(secao){
     document.getElementById("cardapio").classList.add("hidden");
     document.getElementById("alterar").classList.add("hidden");
     document.getElementById("msgerro").classList.add("hidden");
+    document.getElementById("msg").classList.add("hidden");
     // mostra a seção de selecionada
     document.getElementById(secao).classList.remove("hidden");
 }
@@ -123,8 +124,10 @@ if(pizzasalterar){
         cardapio();
          document.getElementById("form-alterar").classList.add("hidden")
         document.getElementById("msg").innerHTML = "Pizza alterada com sucesso !!"
+        document.getElementById("msg").classList.remove("hidden");
     } else {
         document.getElementById("msg").innerHTML = "Preencha todos os campos, ou houve um erro tente novamente mais tarde "
+        document.getElementById("msg").classList.remove("hidden");
     }
 }
 }

@@ -105,6 +105,11 @@ button:hover {
     color: #ff7043;
     font-weight: bold;
 }
+#msg{
+    margin-top: 10px;
+    color: #ff7043;
+    font-weight: bold;
+}
 
 table {
     width: 100%;
