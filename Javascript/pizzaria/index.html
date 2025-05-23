@@ -12,9 +12,6 @@
         <h1>The last of Pizza</h1>
         <p class="icones"></i>
         <div class="botoes">
-            <button onclick="mostrarsecao('login')">
-                Login
-            </button>
             <button onclick="mostrarsecao('cardapio')">
                 Cardápio
             </button>
@@ -57,12 +54,13 @@
         <input type="number" id="valor" placeholder="Digite o valor da pizza">
         </div>
          <button onclick="cadastrarpizza()">Cadastrar Pizza</button>
-        <p id="msgerro"></p>
+        <p class="hidden" id="msgerro"></p>
         </div>  
 
          <!-- Cardápio -->
         <div id="cardapio" class="hidden">
             <h2>Cardápio</h2>
+            <input type="text" id="busca" placeholder="Buscar por titulo" oninput="buscarpizza()">
             <table>
                 <thead>
                     <tr>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <script src="biblioteca4.js"></script>
+    <div id="login" class="container">
+        <h1>Bem-vindo à nossa Bibliteca</h1>
+        <h2>Faça login para continuar</h2>
+        <div id="login" class="container">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" placeholder="Digite seu usuário">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha">
+        </div>
+        <p><button onclick="validarlogin()">Entrar</button></p>
+        <!-- <p><button onclick="mostrarCadastroUsuario()">Cadastrar novo Usuário</button></p> -->
+        <!-- <p><button onclick="esqueceuSenha()">Esqueceu a senha?</button></p> -->
+        <p id="mensagem" class="mensagem hidden"></p>
+    </div>
+</body>
+</html>
