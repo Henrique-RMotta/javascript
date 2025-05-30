@@ -42,8 +42,10 @@ function mostrarsecao(secao){
     document.getElementById("cadastrar").classList.add("hidden");
     document.getElementById("cardapio").classList.add("hidden");
     document.getElementById("alterar").classList.add("hidden");
+    document.getElementById("venda").classList.add("hidden");
     document.getElementById("msgerro").classList.add("hidden");
     document.getElementById("msg").classList.add("hidden");
+    document.getElementById("relatorio-vendas").classList.add("hidden");
     // mostra a seção de selecionada
     document.getElementById(secao).classList.remove("hidden");
 }
@@ -109,7 +111,6 @@ if(pizzasalterar){
 }
 }
 
-
 function alterarpizza (){
 if(pizzasalterar){
     const novonome = document.getElementById("novo-nome").value;
@@ -130,4 +131,72 @@ if(pizzasalterar){
         document.getElementById("msg").classList.remove("hidden");
     }
 }
+}
+let vendas = [];// array para armazenar as vendas
+let nomevenda = null;
+let precovenda = null;
+function registrarvenda() {
+    const nome = document.getElementById('venda-nome').value.toLowerCase();
+    const nomevenda = pizzas.find((pizza) =>
+    pizza.nomepizza.toLowerCase().includes(nome))
+    const preco = parseFloat(document.getElementById('venda-preco').value);
+    const precovenda = pizzas.find(pizzavalor => pizzavalor.valor === preco)
+    const comprador = document.getElementById('venda-comprador').value;
+
+    if (nomevenda != undefined && precovenda != undefined && comprador){
+        const listavendas = document.getElementById('lista-vendas');
+        const item = document.createElement('li');
+        item.textContent = `Título: ${nome}, Preço:R$${preco}, Comprador: ${comprador}`;
+        listavendas.appendChild(item);
+
+        //Adicionar venda ao array de vendas
+        vendas.push({nome,preco,comprador});
+
+        document.getElementById('venda-nome').value = '';
+        document.getElementById('venda-preco').value = '';
+        document.getElementById('venda-comprador').value = ''
+    } else {
+        document.getElementById('venda-nome').value = "Pizza não encontrada"
+        document.getElementById('venda-preco').value = 0
+        document.getElementById('venda-comprador').value = ''
+        setTimeout(() => {
+        document.getElementById('venda-nome').value = ""
+        document.getElementById('venda-preco').value = ""
+    }, 3000); 
+    }
+}
+
+function gerarrelatoriovendas () {
+    const tabelarelatorio = document.getElementById('tabela-relatorio-vendas');
+    tabelarelatorio.innerHTML = '' // limpar tabela
+    if(vendas.length === 0){
+        alert('Nenhuma venda registrada');
+        return;
+    }
+    let totalvendas = 0;
+    if(totalvendas.length === 0){
+        alert('valor de venda não registrado')
+        return;
+    }
+    vendas.forEach((venda) => {
+        const linha = document.createElement('tr');
+        linha.innerHTML = `
+        <td>${venda.nome}</td>
+        <td>R$${venda.preco.toFixed(2)}</td>
+        <td>${venda.comprador}</td>
+        `;
+        tabelarelatorio.appendChild(linha);
+
+        //somar o preço total de vendas
+        totalvendas += parseFloat(venda.preco);
+    })
+    //adiciona uma linha para o total de vendas
+    const linhaTotal = document.createElement('tr');
+    linhaTotal.innerHTML = `
+    <td><strong>Total</strong></td>
+    <td><strong>R$${totalvendas.toFixed(2)}</strong></td>
+    <td></td>`
+    tabelarelatorio.appendChild(linhaTotal)
+    //exibir aa área do relatório
+    document.getElementById('relatorio-vendas').classList.remove('hidden')
 }
