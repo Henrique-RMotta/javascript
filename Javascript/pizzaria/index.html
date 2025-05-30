@@ -8,36 +8,31 @@
 </head>
 <script src="pizzaria.js"></script>
 <body>
+    <h1>O Último Pedaço De Pizza</h1>
+
     <div class="container">
-        <h1>The last of Pizza</h1>
         <p class="icones"></i>
         <div class="botoes">
-            <button onclick="mostrarsecao('cardapio')">
-                Cardápio
-            </button>
-            <button onclick="mostrarsecao('pagamento')">
-                Pagamento
+           <button onclick="mostrarsecao('cardapio')">
+             Cardápio
             </button>
             <button onclick="mostrarsecao('cadastrar')">
-                Cadastrar Pizza
+             Cadastrar Pizza
             </button>
             <button onclick="mostrarsecao('venda')">
-                Registrar venda
+             Registrar venda
             </button>
-            <button onclick="mostrarsecao('relatorio')">
-                Relatório
+            <button onclick="mostrarsecao('alterar')">
+             Alterar Pizza
             </button>
-               <button onclick="mostrarsecao('alterar')">
-                Alterar Pizza
-            </button>
-               <button onclick="gerarrelatoriovendas()">
-                Relatório de Vendas
+            <button onclick="gerarrelatoriovendas()">
+             Relatório de Vendas
             </button>
         </div>
-        
+
         <!-- Cadastro de pizza -->
         <div id="cadastrar" class="hidden">
-        <h2>Cadastrar Pizza</h2>
+        <h2 class="slogan">Cadastrar Pizza</h2>
         <div class="form-group">
         <label for="nomepizza">Nome da pizza:</label>
         <input type="text" id="nomepizza" placeholder="Digite o nome da pizza">
@@ -85,6 +80,7 @@
         <div id="alterar" class="hidden">
             <h2>Alterar Pizza</h2>
             <input type="text" id="busca-alterar" placeholder="Buscar por nome da pizza" oninput="buscaralterar()">
+            <p id="msg" class="hidden"></p>
             <div id="form-alterar" class="hidden">
              <div class="form-group">
             <label for="novo-nome">Nome da pizza:</label>
@@ -102,19 +98,25 @@
             <option value="Média">Média</option>
             <option value="Grande">Grande</option>
             </select>
+            </div>    
+            <div class="form-group">
+                <label for="novo-valor">Preço:</label>
+                <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
             </div>
-            
-        <div class="form-group">
-            <label for="novo-valor">Preço:</label>
-            <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
-        </div>
-        <button onclick="alterarpizza()">Alterar pizza</button>
-        </div>
-        </div>
-         <p id="msg" class="hidden"></p>
+            <button onclick="alterarpizza()">Alterar pizza</button>
+            <p id="msg" class="hidden"></p>
+            </div>
+            </div>
+
         <!-- Venda -->
          <div id="venda" class="hidden">
             <h2>Venda da Pizza</h2>
+            <div class="form-group">
+            <label for="busca-venda">Buscar Pizza:</label>
+            <input type="text" id="busca-venda" placeholder="Buscar por nome da pizza" oninput="buscarvenda()">
+            <p  id="msg-venda"class="hidden"></p>
+            </div>
+            <div id="form-venda" class="hidden" >
             <div class="form-group">
             <label for="venda-nome">Nome da pizza:</label>
             <input type="text" id="venda-nome" placeholder="Digite o nome da pizza">
@@ -127,11 +129,12 @@
                 <label for="venda-comprador">Nome do comprador:</label>
                 <input type="text" id="venda-comprador" placeholder="Digite o nome do comprador">
             </div>
-            <button onclick="registrarvenda()">Registrar Venda:</button>
+            <button onclick="registrarvenda()">Registrar Venda</button>
             <h3>Pizzas Vendidas</h3>
             <ul id="lista-vendas">
                 <!-- Lista de Vendas -->
             </ul>
+            </div>
         </div>
         <div id="relatorio-vendas" class="hidden">
              <h3>Relatório de Vendas</h3>
