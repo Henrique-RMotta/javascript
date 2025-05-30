@@ -51,11 +51,17 @@ function mostrarsecao(secao){
 function cadastrarpizza() {
     // define as propriedades da pizza
     const nomepizza = document.getElementById("nomepizza").value;
+    const nomerepetido = pizzas.find((pizza) => pizza.nomepizza.toLowerCase().includes(nomepizza))
+    console.log(nomerepetido)
     const descricao = document.getElementById("descricao").value;
     const tamanho = document.getElementById("tamanho").value;
     const valor = parseFloat(document.getElementById("valor").value);
     //puxa a pizza para o array
     if(nomepizza && descricao && tamanho && valor ){
+        if (nomerepetido != undefined){
+        document.getElementById("msgerro").innerHTML = `Pizza já cadastrada`
+        document.getElementById("msgerro").classList.remove("hidden");
+        } else {
         pizzas.push({nomepizza,descricao,tamanho,valor});
         document.getElementById("nomepizza").value = "";
         document.getElementById("tamanho").value = "";
@@ -64,6 +70,7 @@ function cadastrarpizza() {
         cardapio();
         document.getElementById("msgerro").innerHTML = `Pizza cadastrada com sucesso`
         document.getElementById("msgerro").classList.remove("hidden");
+        }
     } else {
         document.getElementById("msgerro").innerHTML = `Preencha todos os campos, ou houve um erro tente novamente mais tarde`
         document.getElementById("msgerro").classList.remove("hidden");
