@@ -215,7 +215,7 @@ function registrarvenda() {
     const nome = document.getElementById('venda-nome').value
     const preco = parseFloat(document.getElementById('venda-preco').value)
     const nomevenda = pizzas.find((pizza) =>
-        pizza.nomepizza.toLowerCase().includes(nome))
+        pizza.nomepizza === nome)
     const precovenda = pizzas.find(pizzavalor => pizzavalor.valor === preco)
     const comprador = document.getElementById('venda-comprador').value;
 
