@@ -252,12 +252,18 @@ function registrarvenda() {
 
 // Gera o relatório de vendas
 function gerarrelatoriovendas() {
+    
     const tabelarelatorio = document.getElementById('tabela-relatorio-vendas');
     tabelarelatorio.innerHTML = '' // Limpa a tabela
 
     // Verifica se há vendas registradas
+    
     if (vendas.length === 0) {
-        alert('Nenhuma venda registrada');
+        document.getElementById("msg-relatorio").classList.remove("hidden");
+        document.getElementById("msg-relatorio").innerHTML = `Não há vendas registradas`
+         setTimeout(() => {
+        document.getElementById("msg-relatorio").classList.add("hidden");
+        }, 3000);
         return;
     }
     let totalvendas = 0;

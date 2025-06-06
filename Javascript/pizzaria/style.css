@@ -181,3 +181,7 @@ ul#lista-vendas li {
 .hidden {
   display: none;
 }
+
+#msg-relatorio{
+  text-align: center;
+}
