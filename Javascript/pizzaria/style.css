@@ -1,6 +1,6 @@
 :root {
   --fundo-principal: #12100e;
-  --fundo-menu: #20140f; /* ← ficou igual ao conteúdo */
+  --fundo-menu: #20140f; 
   --borda-destaque: #3a2418;
   --botao: #4a2e1f;
   --botao-hover: #5c3926;
@@ -173,7 +173,7 @@ ul#lista-vendas li {
 /* Mensagens de erro */
 #msgerro,
 #msg,#msg-venda {
-  color: var(--erro);
+  color: var(--texto-claro);
   margin-top: 10px;
 }
 

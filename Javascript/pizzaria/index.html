@@ -4,141 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>The last of Pizza</title>
+    <title>O Último Pedaço De Pizza</title>
 </head>
+<!-- Importa o arquivo JavaScript principal -->
 <script src="pizzaria.js"></script>
 <body>
+    <!-- Título principal do site -->
     <h1>O Último Pedaço De Pizza</h1>
-
     <div class="container">
-        <p class="icones"></i>
+        <!-- Menu lateral com botões de navegação -->
         <div class="botoes">
-           <button onclick="mostrarsecao('cardapio')">
-             Cardápio
+            <!-- Botão para mostrar o cardápio -->
+            <button onclick="mostrarsecao('cardapio')">
+                Cardápio
             </button>
+            <!-- Botão para mostrar o formulário de cadastro de pizza -->
             <button onclick="mostrarsecao('cadastrar')">
-             Cadastrar Pizza
+                Cadastrar Pizza
             </button>
+            <!-- Botão para mostrar o formulário de venda -->
             <button onclick="mostrarsecao('venda')">
-             Registrar venda
+                Registrar venda
             </button>
+            <!-- Botão para mostrar o formulário de alteração de pizza -->
             <button onclick="mostrarsecao('alterar')">
-             Alterar Pizza
+                Alterar Pizza
             </button>
+            <!-- Botão para gerar o relatório de vendas -->
             <button onclick="gerarrelatoriovendas()">
-             Relatório de Vendas
+                Relatório de Vendas
             </button>
         </div>
 
-        <!-- Cadastro de pizza -->
+        <!-- Seção de cadastro de pizza -->
         <div id="cadastrar" class="hidden">
-        <h2 class="slogan">Cadastrar Pizza</h2>
-        <div class="form-group">
-        <label for="nomepizza">Nome da pizza:</label>
-        <input type="text" id="nomepizza" placeholder="Digite o nome da pizza">
-        </div>
-        <div class="form-group">
-        <label for="descricao">Descrição da pizza:</label>
-        <input type="text" id="descricao" placeholder="Digite a descrição da pizza">
-         </div>
-        <div class="form-group">
-        <label for="tamanho">Tamanho:</label>
-        <select id="tamanho">
-            <option value="">Selecione o tamanho</option>
-            <option value="Pequena">Pequena</option>
-            <option value="Média">Média</option>
-            <option value="Grande">Grande</option>
-        </select>
-        </div>
-        <div class="form-group">
-        <label for="valor">Preço:</label>
-        <input type="number" id="valor" placeholder="Digite o valor da pizza">
-        </div>
-         <button onclick="cadastrarpizza()">Cadastrar Pizza</button>
-        <p class="hidden" id="msgerro"></p>
+            <h2>Cadastrar Pizza</h2>
+            <div class="form-group">
+                <label for="nomepizza">Nome da pizza:</label>
+                <input type="text" id="nomepizza" placeholder="Digite o nome da pizza">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição da pizza:</label>
+                <input type="text" id="descricao" placeholder="Digite a descrição da pizza">
+            </div>
+            <div class="form-group">
+                <label for="tamanho">Tamanho:</label>
+                <select id="tamanho">
+                    <option value="">Selecione o tamanho</option>
+                    <option value="Pequena">Pequena</option>
+                    <option value="Média">Média</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="valor">Preço:</label>
+                <input type="number" id="valor" placeholder="Digite o valor da pizza">
+            </div>
+            <!-- Botão para cadastrar pizza -->
+            <button onclick="cadastrarpizza()">Cadastrar Pizza</button>
+            <!-- Mensagem de erro ou sucesso do cadastro -->
+            <p class="hidden" id="msgerro"></p>
         </div>  
 
-         <!-- Cardápio -->
+        <!-- Seção do cardápio de pizzas -->
         <div id="cardapio" class="hidden">
             <h2>Cardápio</h2>
-            <input type="text" id="busca" placeholder="Buscar por titulo" oninput="buscarpizza()">
+            <!-- Campo de busca no cardápio -->
+            <input type="text" id="busca" placeholder="Buscar por nome da pizza" oninput="buscarpizza()">
             <table>
                 <thead>
                     <tr>
                         <th>Nome:</th>
-                        <th>Tamanho</th>
+                        <th>Tamanho:</th>
                         <th>Descrição:</th>
                         <th>Valor:</th>
                     </tr>
                 </thead>
+                <!-- Lista de pizzas será inserida aqui via JS -->
                 <tbody id="lista-pizzas">
-
                 </tbody>
             </table>
         </div>
-        <!-- Alterar pizza -->
+
+        <!-- Seção para alterar pizza -->
         <div id="alterar" class="hidden">
             <h2>Alterar Pizza</h2>
+            <!-- Campo de busca para alteração -->
             <input type="text" id="busca-alterar" placeholder="Buscar por nome da pizza" oninput="buscaralterar()">
+            <!-- Mensagem de erro ou sucesso da alteração -->
             <p id="msg" class="hidden"></p>
+            <!-- Formulário para alterar pizza (preenchido via JS) -->
             <div id="form-alterar" class="hidden">
-             <div class="form-group">
-            <label for="novo-nome">Nome da pizza:</label>
-            <input type="text" id="novo-nome" placeholder="Digite o nome da pizza">
-            </div>
-            <div class="form-group">
-            <label for="novo-descricao">Descrição da pizza:</label>
-            <input type="text" id="novo-descricao" placeholder="Digite a descrição da pizza">
-            </div>
-            <div class="form-group">
-            <label for="novo-tamanho">Tamanho:</label>
-            <select id="novo-tamanho">
-            <option value="">Selecione o tamanho</option>
-            <option value="Pequena">Pequena</option>
-            <option value="Média">Média</option>
-            <option value="Grande">Grande</option>
-            </select>
-            </div>    
-            <div class="form-group">
-                <label for="novo-valor">Preço:</label>
-                <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
-            </div>
-            <button onclick="alterarpizza()">Alterar pizza</button>
-            <p id="msg" class="hidden"></p>
-            </div>
-            </div>
-
-        <!-- Venda -->
-         <div id="venda" class="hidden">
-            <h2>Venda da Pizza</h2>
-            <div class="form-group">
-            <label for="busca-venda">Buscar Pizza:</label>
-            <input type="text" id="busca-venda" placeholder="Buscar por nome da pizza" oninput="buscarvenda()">
-            <p  id="msg-venda"class="hidden"></p>
-            </div>
-            <div id="form-venda" class="hidden" >
-            <div class="form-group">
-            <label for="venda-nome">Nome da pizza:</label>
-            <input type="text" id="venda-nome" placeholder="Digite o nome da pizza">
-            </div>
-            <div class="form-group">
-                <label for="venda-preco">Preço:</label>
-                <input type="number" id="venda-preco" placeholder="Digite o preço da Pizza">
-            </div>
-            <div class="form-group">
-                <label for="venda-comprador">Nome do comprador:</label>
-                <input type="text" id="venda-comprador" placeholder="Digite o nome do comprador">
-            </div>
-            <button onclick="registrarvenda()">Registrar Venda</button>
-            <h3>Pizzas Vendidas</h3>
-            <ul id="lista-vendas">
-                <!-- Lista de Vendas -->
-            </ul>
+                <div class="form-group">
+                    <label for="novo-nome">Nome da pizza:</label>
+                    <input type="text" id="novo-nome" placeholder="Digite o nome da pizza">
+                </div>
+                <div class="form-group">
+                    <label for="novo-descricao">Descrição da pizza:</label>
+                    <input type="text" id="novo-descricao" placeholder="Digite a descrição da pizza">
+                </div>
+                <div class="form-group">
+                    <label for="novo-tamanho">Tamanho:</label>
+                    <select id="novo-tamanho">
+                        <option value="">Selecione o tamanho</option>
+                        <option value="Pequena">Pequena</option>
+                        <option value="Média">Média</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                </div>    
+                <div class="form-group">
+                    <label for="novo-valor">Preço:</label>
+                    <input type="number" id="novo-valor" placeholder="Digite o valor da pizza">
+                </div>
+                <!-- Botão para alterar pizza -->
+                <button onclick="alterarpizza()">Alterar pizza</button>
+                <!-- Mensagem de alteração -->
             </div>
         </div>
+
+        <!-- Seção de venda de pizza -->
+        <div id="venda" class="hidden">
+            <h2>Venda da Pizza</h2>
+            <div class="form-group">
+                <label for="busca-venda">Buscar Pizza:</label>
+                <input type="text" id="busca-venda" placeholder="Buscar por nome da pizza" oninput="buscarvenda()">
+                <!-- Mensagem de erro ou sucesso da venda -->
+                <p id="msg-venda" class="hidden"></p>
+            </div>
+            <!-- Formulário de venda (preenchido via JS) -->
+            <div id="form-venda" class="hidden" >
+                <div class="form-group">
+                    <label for="venda-nome">Nome da pizza:</label>
+                    <input type="text" id="venda-nome" placeholder="Digite o nome da pizza">
+                </div>
+                <div class="form-group">
+                    <label for="venda-preco">Preço:</label>
+                    <input type="number" id="venda-preco" placeholder="Digite o preço da Pizza">
+                </div>
+                <div class="form-group">
+                    <label for="venda-comprador">Nome do comprador:</label>
+                    <input type="text" id="venda-comprador" placeholder="Digite o nome do comprador">
+                </div>
+                <!-- Botão para registrar venda -->
+                <button onclick="registrarvenda()">Registrar Venda</button>
+                <h3>Pizzas Vendidas</h3>
+                <!-- Lista de vendas -->
+                <ul id="lista-vendas">
+                </ul>
+            </div>
+        </div>
+
+        <!-- Seção de relatório de vendas -->
         <div id="relatorio-vendas" class="hidden">
-             <h3>Relatório de Vendas</h3>
-             <table>
+            <h3>Relatório de Vendas</h3>
+            <table>
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -146,10 +165,10 @@
                         <th>Comprador</th>
                     </tr>
                 </thead>
+                <!-- Relatório de vendas será inserido aqui via JS -->
                 <tbody id="tabela-relatorio-vendas">
-
                 </tbody>
-             </table>
+            </table>
         </div>
     </div>
 </body>
