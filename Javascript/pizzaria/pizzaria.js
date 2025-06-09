@@ -66,6 +66,9 @@ function cadastrarpizza() {
         if (nomerepetido!= undefined && tamanhorepetido != undefined) {
             document.getElementById("msgerro").innerHTML = `Pizza já cadastrada`
             document.getElementById("msgerro").classList.remove("hidden");
+            setTimeout(() => {
+            document.getElementById("msgerro").classList.add("hidden");
+        }, 3000);
         } else {
             // Adiciona a pizza ao array
             pizzas.push({ nomepizza, descricao, tamanho, valor });
@@ -78,6 +81,9 @@ function cadastrarpizza() {
             cardapio();
             document.getElementById("msgerro").innerHTML = `Pizza cadastrada com sucesso`
             document.getElementById("msgerro").classList.remove("hidden");
+            setTimeout(() => {
+            document.getElementById("msgerro").classList.add("hidden");
+        }, 3000);
         }
     } else {
         // Exibe mensagem de erro se algum campo estiver vazio
@@ -91,11 +97,19 @@ function cadastrarpizza() {
 
 // Busca pizzas pelo nome no cardápio
 function buscarpizza() {
+    document.getElementById("msg-cardapio").classList.add("hidden");
     const busca = document.getElementById("busca").value.toLowerCase();
     const resultados = pizzas.filter((pizza) =>
         pizza.nomepizza.toLowerCase().includes(busca)
     );
     cardapio(resultados);
+    if(resultados){
+         document.getElementById("msg-cardapio").classList.remove("hidden");
+         document.getElementById("msg-cardapio").innerHTML = `Pizza não encontrada`
+         setTimeout(() => {
+            document.getElementById("msg-cardapio").classList.add("hidden");
+        }, 3000);
+    }
 }
 
 // Exibe o cardápio de pizzas (tabela)
@@ -122,6 +136,7 @@ function buscaralterar() {
         pizza.nomepizza.toLowerCase().includes(busca)
     );
     document.getElementById("msg").classList.add("hidden");
+    document.getElementById("msg2").classList.add("hidden");
     if (pizzasalterar) {
         // Preenche o formulário de alteração com os dados da pizza encontrada
         document.getElementById("form-alterar").classList.remove("hidden");
@@ -150,13 +165,14 @@ function alterarpizza() {
         const tamanhorepetido = pizzas.find((pizza) => pizza.tamanho == novotamanho);
         const novovalor = parseFloat(document.getElementById("novo-valor").value);
         document.getElementById("msg").classList.add("hidden");
+        document.getElementById("msg2").classList.add("hidden");
         // Verifica se todos os campos foram preenchidos
         if (novonome && novodescricao && novotamanho && novovalor) {
             if (nomerepetido!= undefined && tamanhorepetido != undefined){
-            document.getElementById("msg").classList.remove("hidden");
-            document.getElementById("msg").innerHTML = "Esta pizza já existe"
+            document.getElementById("msg2").classList.remove("hidden");
+            document.getElementById("msg2").innerHTML = "Esta pizza já existe"
             setTimeout(() => {
-                document.getElementById("msg").classList.add("hidden");
+                document.getElementById("msg2").classList.add("hidden");
             }, 3000);
             }else {
             // Atualiza os dados da pizza
@@ -166,20 +182,20 @@ function alterarpizza() {
             pizzasalterar.valor = novovalor;
             // Atualiza o cardápio
             cardapio();
-            document.getElementById("msg").classList.remove("hidden");
-            document.getElementById("msg").innerHTML = "Pizza alterada com sucesso !!"
+            document.getElementById("msg2").classList.remove("hidden");
+            document.getElementById("msg2").innerHTML = "Pizza alterada com sucesso !!"
             setTimeout(() => {
                 document.getElementById("form-alterar").classList.add("hidden")
-                document.getElementById("msg").classList.add("hidden");
+                document.getElementById("msg2").classList.add("hidden");
             }, 3000);
         }
     }
     } else {
         // Exibe mensagem de erro se algum campo estiver vazio
-        document.getElementById("msg").innerHTML = "Preencha todos os campos, ou houve um erro tente novamente mais tarde "
-        document.getElementById("msg").classList.remove("hidden");
+        document.getElementById("msg2").innerHTML = "Preencha todos os campos, ou houve um erro tente novamente mais tarde "
+        document.getElementById("msg2").classList.remove("hidden");
         setTimeout(() => {
-            document.getElementById("msg").classList.add("hidden");
+            document.getElementById("msg2").classList.add("hidden");
         }, 3000);
     }
 }
@@ -205,7 +221,7 @@ function buscarvenda() {
         setTimeout(() => {
             document.getElementById("msg-venda").classList.remove("hidden");
             document.getElementById("msg-venda").innerHTML = "Pizza não encontrada"
-        }, 5000);
+        }, 1000);
         document.getElementById("msg-venda").classList.add("hidden");
     }
 }

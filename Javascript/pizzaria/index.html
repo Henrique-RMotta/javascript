@@ -71,6 +71,7 @@
             <h2>Cardápio</h2>
             <!-- Campo de busca no cardápio -->
             <input type="text" id="busca" placeholder="Buscar por nome da pizza" oninput="buscarpizza()">
+            <p id="msg-cardapio" class="hidden"></p>
             <table>
                 <thead>
                     <tr>
@@ -91,8 +92,7 @@
             <h2>Alterar Pizza</h2>
             <!-- Campo de busca para alteração -->
             <input type="text" id="busca-alterar" placeholder="Buscar por nome da pizza" oninput="buscaralterar()">
-            <!-- Mensagem de erro ou sucesso da alteração -->
-            <p id="msg" class="hidden"></p>
+             <p id="msg" class="hidden"></p>
             <!-- Formulário para alterar pizza (preenchido via JS) -->
             <div id="form-alterar" class="hidden">
                 <div class="form-group">
@@ -119,6 +119,7 @@
                 <!-- Botão para alterar pizza -->
                 <button onclick="alterarpizza()">Alterar pizza</button>
                 <!-- Mensagem de alteração -->
+                 <p id="msg2" class="hidden"></p>
             </div>
         </div>
 
