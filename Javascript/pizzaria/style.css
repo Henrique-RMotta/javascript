@@ -10,7 +10,7 @@
   --placeholder: #a38c74;
 }
 
-/* Reset básico */
+
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body e estrutura principal */
+
 body {
   background-color: var(--fundo-principal);
   color: var(--texto-claro);
@@ -27,7 +27,7 @@ body {
   flex-direction: column;
 }
 
-/* Título */
+
 h1 {
   text-align: center;
   font-size: 2.5rem;
@@ -39,13 +39,13 @@ h1 {
   
 }
 
-/* Layout principal */
+
 .container {
   display: flex;
   flex: 1;
 }
 
-/* Sidebar */
+
 .botoes {
   width: 220px;
   background-color: var(--fundo-menu);
@@ -55,7 +55,7 @@ h1 {
   gap: 15px;
 }
 
-/* Botões do menu */
+
 .botoes button {
   background-color: var(--botao);
   color: var(--texto-claro);
@@ -75,19 +75,19 @@ h1 {
   background-color: var(--botao-hover);
 }
 
-/* Ícones alinhados */
+
 .botoes i {
   width: 20px;
   text-align: center;
 }
 
-/* Área de conteúdo principal */
+
 .container > div:not(.botoes) {
   flex: 1;
   padding: 30px;
 }
 
-/* Títulos internos */
+
 h2 {
   color: var(--texto-claro);
   margin-bottom: 15px;
@@ -95,7 +95,7 @@ h2 {
   padding-bottom: 5px;
 }
 
-/* Formulários */
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -120,7 +120,7 @@ input::placeholder {
   color: var(--placeholder);
 }
 
-/* Botões gerais */
+
 button {
   background-color: var(--botao);
   color: var(--texto-claro);
@@ -137,7 +137,7 @@ button:hover {
   background-color: var(--botao-hover);
 }
 
-/* Tabelas */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -156,7 +156,6 @@ th {
   background-color: var(--borda-destaque);
 }
 
-/* Lista de vendas */
 ul#lista-vendas {
   list-style: none;
   padding: 0;
@@ -170,18 +169,29 @@ ul#lista-vendas li {
   border-radius: 4px;
 }
 
-/* Mensagens de erro */
+
 #msgerro,
 #msg,#msg-venda {
   color: var(--texto-claro);
   margin-top: 10px;
 }
 
-/* Esconde seções */
+
 .hidden {
   display: none;
 }
 
-#msg-relatorio{
+#msg-relatorio {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  background: #3a2418;
+  color: #fff;
   text-align: center;
+  padding: 16px 0;
+  font-size: 1.1rem;
+  z-index: 9999;
+  border-top: 2px solid #4a2e1f;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
 }

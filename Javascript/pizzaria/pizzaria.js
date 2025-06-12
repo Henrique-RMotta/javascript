@@ -2,11 +2,9 @@
 function exibirMensagem(texto, tipo) {
     const mensagem = document.getElementById("mensagem");
     mensagem.textContent = texto;
-    // Adiciona a classe de estilo (sucesso ou erro)
     mensagem.className = `mensagem mensagem-${tipo}`;
     mensagem.classList.remove("hidden");
 
-    // Remove a mensagem após 3 segundos
     setTimeout(() => {
         mensagem.classList.add("hidden")
     }, 3000);
@@ -17,14 +15,12 @@ function validarlogin() {
     const usuario = document.getElementById("usuario").value;
     const senha = document.getElementById("senha").value;
 
-    // Usuário e senha fixos para validação
     const usuarioCorreto = "admin";
     const senhaCorreta = "1234";
 
     if (usuario === usuarioCorreto && senha === senhaCorreta) {
         exibirMensagem("Login realizado com sucesso!", "sucesso");
         setTimeout(() => {
-            // Redireciona para a página principal após 1 segundo
             window.location.href = "index.html";
         }, 1000);
     } else {
@@ -43,16 +39,12 @@ function mostrarsecao(secao) {
     document.getElementById("cardapio").classList.add("hidden");
     document.getElementById("alterar").classList.add("hidden");
     document.getElementById("venda").classList.add("hidden");
-    
-    
     document.getElementById("relatorio-vendas").classList.add("hidden");
-    // Mostra a seção selecionada
     document.getElementById(secao).classList.remove("hidden");
 }
 
-// Cadastra uma nova pizza
+// Cadastrar
 function cadastrarpizza() {
-    // Pega os valores dos campos do formulário
     const nomepizza = document.getElementById("nomepizza").value;
     const nomerepetido = pizzas.find((pizza) => pizza.nomepizza == nomepizza);
     const tamanho = document.getElementById("tamanho").value;
@@ -60,7 +52,6 @@ function cadastrarpizza() {
     const descricao = document.getElementById("descricao").value;
     const valor = parseFloat(document.getElementById("valor").value);
     document.getElementById("msgerro").classList.add("hidden");
-    // Verifica se todos os campos foram preenchidos
     if (nomepizza && descricao && tamanho && valor) {
         // Verifica se a pizza já foi cadastrada
         if (nomerepetido!= undefined && tamanhorepetido != undefined) {
@@ -70,14 +61,11 @@ function cadastrarpizza() {
             document.getElementById("msgerro").classList.add("hidden");
         }, 3000);
         } else {
-            // Adiciona a pizza ao array
             pizzas.push({ nomepizza, descricao, tamanho, valor });
-            // Limpa os campos do formulário
             document.getElementById("nomepizza").value = "";
             document.getElementById("tamanho").value = "";
             document.getElementById("valor").value = "";
             document.getElementById("descricao").value = "";
-            // Atualiza o cardápio
             cardapio();
             document.getElementById("msgerro").innerHTML = `Pizza cadastrada com sucesso`
             document.getElementById("msgerro").classList.remove("hidden");
@@ -86,7 +74,6 @@ function cadastrarpizza() {
         }, 3000);
         }
     } else {
-        // Exibe mensagem de erro se algum campo estiver vazio
         document.getElementById("msgerro").innerHTML = `Preencha todos os campos, ou houve um erro tente novamente mais tarde`
         document.getElementById("msgerro").classList.remove("hidden");
         setTimeout(() => {
@@ -95,7 +82,7 @@ function cadastrarpizza() {
     }
 }
 
-// Busca pizzas pelo nome no cardápio
+// Busca de pizzas - Cardápio
 function buscarpizza() {
     document.getElementById("msg-cardapio").classList.add("hidden");
     const busca = document.getElementById("busca").value.toLowerCase();
@@ -103,7 +90,7 @@ function buscarpizza() {
         pizza.nomepizza.toLowerCase().includes(busca)
     );
     cardapio(resultados);
-    if(resultados){
+    if(resultados == ""){
          document.getElementById("msg-cardapio").classList.remove("hidden");
          document.getElementById("msg-cardapio").innerHTML = `Pizza não encontrada`
          setTimeout(() => {
@@ -112,7 +99,7 @@ function buscarpizza() {
     }
 }
 
-// Exibe o cardápio de pizzas (tabela)
+//cardápio 
 function cardapio(lista = pizzas) {
     const tabela = document.getElementById("lista-pizzas");
     tabela.innerHTML = "";
@@ -138,14 +125,12 @@ function buscaralterar() {
     document.getElementById("msg").classList.add("hidden");
     document.getElementById("msg2").classList.add("hidden");
     if (pizzasalterar) {
-        // Preenche o formulário de alteração com os dados da pizza encontrada
         document.getElementById("form-alterar").classList.remove("hidden");
         document.getElementById("novo-nome").value = pizzasalterar.nomepizza;
         document.getElementById("novo-descricao").value = pizzasalterar.descricao;
         document.getElementById("novo-tamanho").value = pizzasalterar.tamanho;
         document.getElementById("novo-valor").value = pizzasalterar.valor;
     } else {
-        // Exibe mensagem se não encontrar a pizza
         document.getElementById("msg").classList.remove("hidden");
         setTimeout(() => {
             document.getElementById("msg").classList.add("hidden");
@@ -154,10 +139,9 @@ function buscaralterar() {
     }
 }
 
-// Altera os dados da pizza selecionada
+// Alterar a pizza
 function alterarpizza() {
     if (pizzasalterar) {
-        // Pega os novos valores do formulário
         const novonome = document.getElementById("novo-nome").value;
         const nomerepetido = pizzas.find((pizza) => pizza.nomepizza == novonome);
         const novodescricao = document.getElementById("novo-descricao").value;
@@ -166,7 +150,6 @@ function alterarpizza() {
         const novovalor = parseFloat(document.getElementById("novo-valor").value);
         document.getElementById("msg").classList.add("hidden");
         document.getElementById("msg2").classList.add("hidden");
-        // Verifica se todos os campos foram preenchidos
         if (novonome && novodescricao && novotamanho && novovalor) {
             if (nomerepetido!= undefined && tamanhorepetido != undefined){
             document.getElementById("msg2").classList.remove("hidden");
@@ -175,12 +158,10 @@ function alterarpizza() {
                 document.getElementById("msg2").classList.add("hidden");
             }, 3000);
             }else {
-            // Atualiza os dados da pizza
             pizzasalterar.nomepizza = novonome;
             pizzasalterar.descricao = novodescricao;
             pizzasalterar.tamanho = novotamanho;
             pizzasalterar.valor = novovalor;
-            // Atualiza o cardápio
             cardapio();
             document.getElementById("msg2").classList.remove("hidden");
             document.getElementById("msg2").innerHTML = "Pizza alterada com sucesso !!"
@@ -189,9 +170,7 @@ function alterarpizza() {
                 document.getElementById("msg2").classList.add("hidden");
             }, 3000);
         }
-    }
     } else {
-        // Exibe mensagem de erro se algum campo estiver vazio
         document.getElementById("msg2").innerHTML = "Preencha todos os campos, ou houve um erro tente novamente mais tarde "
         document.getElementById("msg2").classList.remove("hidden");
         setTimeout(() => {
@@ -199,25 +178,21 @@ function alterarpizza() {
         }, 3000);
     }
 }
-
+}
 // Array para armazenar as vendas
 let vendas = [];
 // Variável para armazenar a pizza encontrada para venda
 let nomevenda = null;
-
-// Busca pizza para venda pelo nome
 function buscarvenda() {
     const busca = document.getElementById("busca-venda").value.toLowerCase();
     document.getElementById("msg-venda").classList.add("hidden");
     nomevenda = pizzas.find((pizza) =>
         pizza.nomepizza.toLowerCase().includes(busca))
     if (nomevenda) {
-        // Preenche os campos do formulário de venda
         document.getElementById('venda-nome').value = nomevenda.nomepizza;
         document.getElementById('venda-preco').value = nomevenda.valor;
         document.getElementById("form-venda").classList.remove("hidden");
     } else {
-        // Exibe mensagem se não encontrar a pizza
         setTimeout(() => {
             document.getElementById("msg-venda").classList.remove("hidden");
             document.getElementById("msg-venda").innerHTML = "Pizza não encontrada"
@@ -228,37 +203,41 @@ function buscarvenda() {
 
 // Registra uma venda de pizza
 function registrarvenda() {
+    // Obtém os valores dos campos do formulário de venda
     const nome = document.getElementById('venda-nome').value
     const preco = parseFloat(document.getElementById('venda-preco').value)
-    const nomevenda = pizzas.find((pizza) =>
-        pizza.nomepizza === nome)
+    // Procura a pizza pelo nome e pelo valor no array de pizzas
+    const nomevenda = pizzas.find((pizza) => pizza.nomepizza === nome)
     const precovenda = pizzas.find(pizzavalor => pizzavalor.valor === preco)
+    // Obtém o nome do comprador
     const comprador = document.getElementById('venda-comprador').value;
 
     // Verifica se todos os dados estão corretos
     if (nomevenda != undefined && precovenda != undefined && comprador) {
-        // Adiciona a venda à lista na tela
+        // Adiciona a venda à lista visual na tela
         const listavendas = document.getElementById('lista-vendas');
         const item = document.createElement('li');
         item.textContent = `Pizza: ${nome}, Preço:R$${preco}, Comprador: ${comprador}`;
         listavendas.appendChild(item);
 
-        // Adiciona venda ao array de vendas
+        // Adiciona a venda ao array de vendas
         vendas.push({ nome, preco, comprador });
 
         // Limpa os campos do formulário de venda
         document.getElementById('venda-nome').value = '';
         document.getElementById('venda-preco').value = '';
         document.getElementById('venda-comprador').value = ''
+        // Esconde o formulário de venda após 5 segundos
         setTimeout(() => {
             document.getElementById("form-venda").classList.add("hidden");
         }, 5000);
 
     } else {
-        // Exibe mensagem de erro se algum campo estiver incorreto
-        document.getElementById('venda-nome').value = "Pizza não encontrada"
-        document.getElementById('venda-preco').value = 0
+        // Se algum dado estiver incorreto, exibe mensagem de erro nos campos
+        document.getElementById('venda-nome').value = "Pizza não encontrada, ou dados incorretos !"
+        document.getElementById('venda-preco').value = ''
         document.getElementById('venda-comprador').value = ''
+        // Limpa os campos após 3 segundos
         setTimeout(() => {
             document.getElementById('venda-nome').value = ""
             document.getElementById('venda-preco').value = ""
@@ -270,10 +249,7 @@ function registrarvenda() {
 function gerarrelatoriovendas() {
     
     const tabelarelatorio = document.getElementById('tabela-relatorio-vendas');
-    tabelarelatorio.innerHTML = '' // Limpa a tabela
-
-    // Verifica se há vendas registradas
-    
+    tabelarelatorio.innerHTML = '' 
     if (vendas.length === 0) {
         document.getElementById("msg-relatorio").classList.remove("hidden");
         document.getElementById("msg-relatorio").innerHTML = `Não há vendas registradas`
@@ -282,12 +258,7 @@ function gerarrelatoriovendas() {
         }, 3000);
         return;
     }
-    let totalvendas = 0;
-    if (totalvendas.length === 0) {
-        alert('valor de venda não registrado')
-        return;
-    }
-    // Adiciona cada venda à tabela
+
     vendas.forEach((venda) => {
         const linha = document.createElement('tr');
         linha.innerHTML = `
@@ -297,16 +268,13 @@ function gerarrelatoriovendas() {
         `;
         tabelarelatorio.appendChild(linha);
 
-        // Soma o preço total das vendas
         totalvendas += parseFloat(venda.preco);
     })
-    // Adiciona uma linha para o total de vendas
     const linhaTotal = document.createElement('tr');
     linhaTotal.innerHTML = `
     <td><strong>Total</strong></td>
     <td><strong>R$${totalvendas.toFixed(2)}</strong></td>
     <td></td>`
     tabelarelatorio.appendChild(linhaTotal)
-    // Exibe a área do relatório
     document.getElementById('relatorio-vendas').classList.remove('hidden')
 }
