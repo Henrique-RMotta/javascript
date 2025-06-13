@@ -145,13 +145,14 @@ function alterarpizza() {
         const novonome = document.getElementById("novo-nome").value;
         const nomerepetido = pizzas.find((pizza) => pizza.nomepizza == novonome);
         const novodescricao = document.getElementById("novo-descricao").value;
+        const descricaorepetido = pizzas.find((pizza) => pizza.descricao == novodescricao);
         const novotamanho = document.getElementById("novo-tamanho").value;
         const tamanhorepetido = pizzas.find((pizza) => pizza.tamanho == novotamanho);
         const novovalor = parseFloat(document.getElementById("novo-valor").value);
         document.getElementById("msg").classList.add("hidden");
         document.getElementById("msg2").classList.add("hidden");
         if (novonome && novodescricao && novotamanho && novovalor) {
-            if (nomerepetido!= undefined && tamanhorepetido != undefined){
+            if (nomerepetido!= undefined && tamanhorepetido != undefined && descricaorepetido != undefined){
             document.getElementById("msg2").classList.remove("hidden");
             document.getElementById("msg2").innerHTML = "Esta pizza já existe"
             setTimeout(() => {
