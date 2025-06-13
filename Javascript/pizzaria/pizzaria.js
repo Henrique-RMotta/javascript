@@ -203,41 +203,31 @@ function buscarvenda() {
 
 // Registra uma venda de pizza
 function registrarvenda() {
-    // Obtém os valores dos campos do formulário de venda
     const nome = document.getElementById('venda-nome').value
     const preco = parseFloat(document.getElementById('venda-preco').value)
-    // Procura a pizza pelo nome e pelo valor no array de pizzas
     const nomevenda = pizzas.find((pizza) => pizza.nomepizza === nome)
     const precovenda = pizzas.find(pizzavalor => pizzavalor.valor === preco)
-    // Obtém o nome do comprador
     const comprador = document.getElementById('venda-comprador').value;
 
-    // Verifica se todos os dados estão corretos
     if (nomevenda != undefined && precovenda != undefined && comprador) {
-        // Adiciona a venda à lista visual na tela
         const listavendas = document.getElementById('lista-vendas');
         const item = document.createElement('li');
         item.textContent = `Pizza: ${nome}, Preço:R$${preco}, Comprador: ${comprador}`;
         listavendas.appendChild(item);
 
-        // Adiciona a venda ao array de vendas
         vendas.push({ nome, preco, comprador });
 
-        // Limpa os campos do formulário de venda
         document.getElementById('venda-nome').value = '';
         document.getElementById('venda-preco').value = '';
         document.getElementById('venda-comprador').value = ''
-        // Esconde o formulário de venda após 5 segundos
         setTimeout(() => {
             document.getElementById("form-venda").classList.add("hidden");
         }, 5000);
 
     } else {
-        // Se algum dado estiver incorreto, exibe mensagem de erro nos campos
         document.getElementById('venda-nome').value = "Pizza não encontrada, ou dados incorretos !"
         document.getElementById('venda-preco').value = ''
         document.getElementById('venda-comprador').value = ''
-        // Limpa os campos após 3 segundos
         setTimeout(() => {
             document.getElementById('venda-nome').value = ""
             document.getElementById('venda-preco').value = ""
@@ -259,6 +249,8 @@ function gerarrelatoriovendas() {
         return;
     }
 
+    let totalVendas = 0;
+
     vendas.forEach((venda) => {
         const linha = document.createElement('tr');
         linha.innerHTML = `
@@ -268,12 +260,12 @@ function gerarrelatoriovendas() {
         `;
         tabelarelatorio.appendChild(linha);
 
-        totalvendas += parseFloat(venda.preco);
+        totalVendas += parseFloat(venda.preco);
     })
     const linhaTotal = document.createElement('tr');
     linhaTotal.innerHTML = `
     <td><strong>Total</strong></td>
-    <td><strong>R$${totalvendas.toFixed(2)}</strong></td>
+    <td><strong>R$${totalVendas.toFixed(2)}</strong></td>
     <td></td>`
     tabelarelatorio.appendChild(linhaTotal)
     document.getElementById('relatorio-vendas').classList.remove('hidden')
